@@ -3,6 +3,9 @@ language: node_js
 node_js:
   - 10.15.1
 
+addons:
+  firefox: "76.0"
+
 env:
   global:
     - secure: GYOHeXotxMg85ilf4xbnO1glJumNZ1JdSsLCpwZh/M3S62hoA7rYthnhKDqf+aUHrDvuQPTEdALWbgTa68pSCCl1GMXYXOuLsSk/xe7wY9dsBg7DxTD+OOk8anJfbHCdBQQ0oozbnkQ6oAryl0atDw/T2Z2LQPMUWcD2g2XMFMmNNI17fLXv1ly8D7GIH/MHCkkb8NDMkhFj/JtRiaJxQecfGglwaImOSTtHjoOwV5iIxuEYOEZjYNV4/2tmw007SaK8GvcYTIqrzSOG2wzvWMlZXc4RHmRrBY2V3WNwjUQOHez7fewH54SdoVOVxTuMCE9DbMZ27sNS5rHdSfnr/Q==
@@ -11,8 +14,24 @@ env:
     - MOD_LOC=$SHIPPABLE_REPO_DIR/node_modules/.bin/
 
 build:
+    # note: you can use custom Docker image with Shippable, see
+  # http://docs.shippable.com/ci/custom-docker-image/
+  pre_ci_boot:
+    # https://github.com/cypress-io/cypress-docker-images
+    image_name: cypress/base
+    # use specific tag to avoid surprises
+    image_tag: 14.0.0
+    pull: true
+
+  # Caching configuration to avoid reinstalling node modules and Cypress binary again and again
+  # http://docs.shippable.com/ci/caching/
+  cache: true
+  cache_dir_list:
+    - /root/.npm
+    - /root/.cache
 
   ci:
     - shippable_retry npm install
     - export PERCY_TOKEN=$percytoken
-    - npm run cypress:percy
+    - "export DISPLAY=:99.0"
+    - xvfb-run --server-args="-ac" npm run cypress:percy
