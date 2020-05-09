@@ -1,0 +1,20 @@
+{
+  "name": "password-generator-tests",
+  "version": "1.0.0",
+  "description": "cypress tests to verify password is generated for english",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "cypress:run:firefox": "cypress run --browser firefox",
+    "cypress:percy": "percy exec -- cypress run --reporter junit"
+  },
+  "author": "keerthi selvaraj",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "4.5.0",
+    "@percy/cypress": "2.3.1",
+    "mocha": "7.1.2"
+  }
+}

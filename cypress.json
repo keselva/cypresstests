@@ -1,0 +1,8 @@
+{
+    "baseUrl": "https://mysterious-forest-66057.herokuapp.com/password/english",
+    "reporter": "junit",
+    "reporterOptions": {
+        "mochaFile": "shippable/testresults/test-results.xml",
+        "testCaseSwitchClassnameAndName": false
+    }
+}
