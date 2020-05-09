@@ -5,7 +5,7 @@ node_js:
 
 env:
   global:
-    - secure: io7xU803eLUhBy8sV4iR835jfsBTfUU/CGG//VfSleqiWsVKjijvHYJeV5IGneH5qnPwlo8nZmsJE7hTaJSz0UWziaps2oacQwB3GXbbKpwrWinh6McH/EavWGl6lKpfFATYeGmGwmcdMJXsDUlHlTnxKQSqLvOb4ylz+f7nY5d2PU9B4mq6bKAz4zp43dbJ/Qk5LxzBup0y7FZ1Hdk/cpLuJtYkc2n8TjBNd4/dv4t6/Qt8xstfL7IdHBL/xp8TDO99O+KTjlMSget0k3BQ682SKkzuoGpvrZ6u/z1w/kUTI9nkHaxK5dppyf1FWO8DTdsXdu3l/vR4hJwALlXNKw==
+    - secure: GYOHeXotxMg85ilf4xbnO1glJumNZ1JdSsLCpwZh/M3S62hoA7rYthnhKDqf+aUHrDvuQPTEdALWbgTa68pSCCl1GMXYXOuLsSk/xe7wY9dsBg7DxTD+OOk8anJfbHCdBQQ0oozbnkQ6oAryl0atDw/T2Z2LQPMUWcD2g2XMFMmNNI17fLXv1ly8D7GIH/MHCkkb8NDMkhFj/JtRiaJxQecfGglwaImOSTtHjoOwV5iIxuEYOEZjYNV4/2tmw007SaK8GvcYTIqrzSOG2wzvWMlZXc4RHmRrBY2V3WNwjUQOHez7fewH54SdoVOVxTuMCE9DbMZ27sNS5rHdSfnr/Q==
     - TEST_RESULTS_DIR=$SHIPPABLE_REPO_DIR/shippable/testresults
     - TESTS_LOC_DIR=$SHIPPABLE_REPO_DIR/tests
     - MOD_LOC=$SHIPPABLE_REPO_DIR/node_modules/.bin/
@@ -14,4 +14,5 @@ build:
 
   ci:
     - shippable_retry npm install
+    - export PERCY_TOKEN=$percytoken
     - npm run cypress:percy
