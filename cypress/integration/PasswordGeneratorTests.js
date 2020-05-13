@@ -6,10 +6,10 @@ describe('Password generator tests', () => {
     beforeEach(() => { 
         cy.visit('/')
         cy.get(passwordPage.pageHeader).should('have.text', 'Experiment')
-        cy.percySnapshot('Home page')
     })
 
     it('Verify password is generated for english language with special characters true', () => {
+        cy.percySnapshot('Before running the tests')
         cy.submitrequest('english','true')
         cy.get(passwordPage.password).should('be.visible').should('not.empty') 
         cy.percySnapshot('After generating password with special characters true')   

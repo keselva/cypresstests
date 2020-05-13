@@ -13,3 +13,7 @@
 
 # CI pipeline
 #### Tests are integrated in Shippable CI
+
+[![Run Status](https://api.shippable.com/projects/5eb68f86098a9c0007a50a28/badge?branch=master)]()
+
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/testing-cypress/cypress-percy-tests)
