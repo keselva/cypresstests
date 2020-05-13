@@ -9,7 +9,7 @@ describe('Password generator tests', () => {
     })
 
     it('Verify password is generated for english language with special characters true', () => {
-        cy.percySnapshot('Home page')
+        cy.percySnapshot('Before running the tests')
         cy.submitrequest('english','true')
         cy.get(passwordPage.password).should('be.visible').should('not.empty') 
         cy.percySnapshot('After generating password with special characters true')   
